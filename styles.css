@@ -167,14 +167,14 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 3.2rem; /* Sutil redução para ajudar a caber em menos linhas no Desktop */
     font-weight: 600;
     letter-spacing: -0.02em;
     margin-bottom: 24px;
     text-align: center !important;
-    max-width: 900px; /* Expande para permitir linhas mais longas no Desktop */
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 100%; /* Permite ocupar toda a largura da coluna */
+    margin-left: 0;
+    margin-right: 0;
 }
 
 h2 {
@@ -290,7 +290,7 @@ section {
 
 .hero > .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 0.8fr; /* Dá mais espaço para o texto (60%) e menos para a imagem (40%) */
     gap: 60px;
     align-items: center;
 }
