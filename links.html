@@ -6,9 +6,14 @@
     <title>Links | Mylena Kerolen</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://i.ibb.co/SkdTjgQ/logomarcasf.webp" as="image">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 </head>
 <body class="links-page">
     <div class="linktree-container">
@@ -42,7 +47,7 @@
     <footer>
         <div class="container footer-content">
             <div class="footer-logo">
-                <img src="https://i.ibb.co/XxRccWwG/logomylenasf.webp" alt="Logo Mylena Kerolen">
+                <img src="https://i.ibb.co/XxRccWwG/logomylenasf.webp" alt="Logo Mylena Kerolen" loading="lazy" decoding="async">
             </div>
             <p>&copy; 2026 Mylena Kerolen - Psicologia Clínica. Todos os direitos reservados.</p>
             <div class="footer-links">

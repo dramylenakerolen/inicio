@@ -6,9 +6,14 @@
     <title>Metodologia TCC | Entenda a Ciência da Mudança</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://i.ibb.co/SkdTjgQ/logomarcasf.webp" as="image">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 </head>
 <body class="advertorial-page">
     <nav class="advertorial-nav">
@@ -27,7 +32,7 @@
         <section class="advertorial-body container">
             <p>Você já sentiu que, por mais que tente mudar um hábito ou parar de se preocupar, parece haver uma força invisível te empurrando de volta para o mesmo lugar? Se a resposta é sim, você não está sozinho(a). A neurociência explica que não reagimos ao mundo como ele é, mas sim como a nossa mente o interpreta.</p>
 
-            <img src="assets/brain_graphic.png" alt="Ilustração do Cérebro e Pensamentos" class="body-img">
+            <img src="assets/brain_graphic.png" alt="Ilustração do Cérebro e Pensamentos" class="body-img" loading="lazy" decoding="async">
 
             <h2>O que é a Terapia Cognitivo Comportamental (TCC)?</h2>
             <p>A TCC é uma abordagem da psicologia curativa e prática. Diferente de outras terapias que focam apenas no passado remoto, a TCC olha para o seu <strong>"aqui e agora"</strong>. Ela se baseia na ideia de que nossos pensamentos (Cognição), sentimentos (Emoção) e ações (Comportamento) estão interligados.</p>
@@ -75,7 +80,7 @@
     <footer>
         <div class="container footer-content">
             <div class="footer-logo">
-                <img src="https://i.ibb.co/XxRccWwG/logomylenasf.webp" alt="Logo Mylena Kerolen">
+                <img src="https://i.ibb.co/XxRccWwG/logomylenasf.webp" alt="Logo Mylena Kerolen" loading="lazy" decoding="async">
             </div>
             <p>&copy; 2026 Mylena Kerolen - Psicologia Clínica. Todos os direitos reservados.</p>
             <div class="footer-links">
