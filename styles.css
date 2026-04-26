@@ -105,7 +105,7 @@
     }
 
     .hero {
-        padding: 200px 0 60px; /* More space for the badge below fixed header on mobile */
+        padding: 240px 0 60px; /* Massive padding for mobile to ensure gap */
     }
 }
 
@@ -176,7 +176,7 @@ h2 {
     font-size: 2.5rem;
     font-weight: 600;
     margin-bottom: 16px;
-    text-align: justify;
+    text-align: justify !important;
 }
 
 /* Utilities */
@@ -261,7 +261,7 @@ section {
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 240px 0 80px; /* Increased to provide more space below fixed header */
+    padding: 280px 0 80px; /* Massive padding to ensure the gap is visible */
 }
 
 .hero::after {
