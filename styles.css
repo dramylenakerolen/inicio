@@ -105,7 +105,7 @@
     }
 
     .hero {
-        padding: 240px 0 60px; /* Massive padding for mobile to ensure gap */
+        padding: 280px 0 60px; /* Maximum mobile padding */
     }
 }
 
@@ -170,6 +170,7 @@ h1 {
     font-weight: 600;
     letter-spacing: -0.02em;
     margin-bottom: 24px;
+    text-align: justify !important;
 }
 
 h2 {
@@ -261,7 +262,7 @@ section {
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 280px 0 80px; /* Massive padding to ensure the gap is visible */
+    padding: 320px 0 80px; /* Maximum padding to force the gap beyond doubt */
 }
 
 .hero::after {
