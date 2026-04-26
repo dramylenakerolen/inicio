@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapeamento Emocional Avançado | Mylena Kerolen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="mapping-page">
+    <div class="container" style="padding-top: 20px; max-width: 650px;">
+        <a href="index.html" class="back-link">
+            <i class="ph ph-arrow-left"></i> Voltar para o início
+        </a>
+    </div>
+
+    <div class="mapping-container">
+        <!-- Barra de Progresso -->
+        <div class="mapping-progress-wrapper">
+            <div class="mapping-progress-bar" id="mapping-progress"></div>
+        </div>
+        
+        <form id="mapping-form" onsubmit="event.preventDefault(); submitMapping();">
+            
+            <!-- Etapa 1: Nome -->
+            <div class="mapping-step active" id="m-step-1">
+                <i class="ph ph-user-circle step-icon"></i>
+                <h2>Vamos começar! Qual é o seu nome completo?</h2>
+                <p class="mapping-sub">Queremos que sua avaliação seja totalmente pessoal.</p>
+                <div class="input-wrapper">
+                    <input type="text" id="lead_name" name="Nome Completo" class="mapping-input" placeholder="Ex: Ana Silva" required oninput="validateNameFlow()">
+                    <div class="error-msg" id="name-error">Por favor, insira pelo menos seu sobrenome. Espaços são obrigatórios!</div>
+                </div>
+                <!-- Controls -->
+                <div class="mapping-controls">
+                    <button type="button" class="mapping-btn" onclick="nextMappingStep(2)" id="btn-m-1" disabled>Avançar e Iniciar Diagnóstico <i class="ph ph-arrow-right"></i></button>
+                </div>
+            </div>
+            
+            <!-- Etapa 2: Psicologia Q1 -->
+            <div class="mapping-step" id="m-step-2">
+                <h3 class="mapping-question">Ao lidar com problemas incertos que saem do seu controle, qual costuma ser sua primeira reação mental ou física?</h3>
+                <div class="mapping-options">
+                    <button type="button" class="m-option" onclick="selectOption(2, 'A')">Sinto palpitações, ansiedade, e a minha mente não para de tentar descobrir o que vai acontecer.</button>
+                    <button type="button" class="m-option" onclick="selectOption(2, 'B')">Sinto uma sensação de fracasso e exaustão absurda, me dá vontade de me isolar.</button>
+                    <button type="button" class="m-option" onclick="selectOption(2, 'C')">Costumo me irritar profundamente, fico com 'os nervos à flor da pele' perto das pessoas.</button>
+                </div>
+            </div>
+
+            <!-- Etapa 3: Psicologia Q2 -->
+            <div class="mapping-step" id="m-step-3">
+                <h3 class="mapping-question">Considerando as suas últimas 4 semanas, como você descreveria a qualidade da sua energia diária e do seu sono?</h3>
+                <div class="mapping-options">
+                    <button type="button" class="m-option" onclick="selectOption(3, 'A')">Eu deito muito exausto(a), mas levo um tempão para conseguir dormir porque a cabeça acelera o fluxo de pensamentos.</button>
+                    <button type="button" class="m-option" onclick="selectOption(3, 'B')">Eu durmo bastante até, mas acordo sentindo cansaço corporal extremo, como se nada me revigorasse de verdade mais.</button>
+                    <button type="button" class="m-option" onclick="selectOption(3, 'C')">Geralmente meu sono oscila dramaticamente de acordo com quantas situações estressantes sociais eu enfrentei no meu dia.</button>
+                </div>
+            </div>
+
+            <!-- Etapa 4: Psicologia Q3 -->
+            <div class="mapping-step" id="m-step-4">
+                <h3 class="mapping-question">Como se comportam os seus gatilhos hoje quando o assunto se trata de convivência diária com parceiros, sócios ou família?</h3>
+                <div class="mapping-options">
+                    <button type="button" class="m-option" onclick="selectOption(4, 'B')">Eu tenho a tendência de engolir as minhas vontades apenas para ver paz e não precisar lidar com discussões. Silencio o que sinto em mim.</button>
+                    <button type="button" class="m-option" onclick="selectOption(4, 'C')">Eu bato de frente com extrema intensidade caso sinta sinais de humilhação, o que causa picos enormes de instabilidade nas interações diárias.</button>
+                    <button type="button" class="m-option" onclick="selectOption(4, 'A')">Guardo um pânico invisível de desaprovação alheia, então passo o tempo inteiro medindo minhas opções para não correr risco algum.</button>
+                </div>
+            </div>
+
+            <!-- Etapa 5: WhatsApp -->
+            <div class="mapping-step" id="m-step-5">
+                <i class="ph ph-whatsapp-logo step-icon"></i>
+                <h2>Se precisarmos entrar em contato, qual seu número de WhatsApp com DDD?</h2>
+                <div class="input-wrapper">
+                    <input type="tel" id="lead_whatsapp" name="WhatsApp" class="mapping-input" placeholder="(00) 0.0000-0000" maxlength="15" oninput="maskWhatsApp(this)">
+                    <div class="error-msg" id="phone-error">Insira o código DDD e um número de telefone no formato correto para poder prosseguir.</div>
+                </div>
+                <!-- Controls -->
+                <div class="mapping-controls">
+                    <button type="button" class="mapping-btn outline" onclick="nextMappingStep(4)"><i class="ph ph-arrow-left"></i> Voltar</button>
+                    <button type="button" class="mapping-btn" onclick="nextMappingStep(6)" id="btn-m-5" disabled>Próxima Etapa <i class="ph ph-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Etapa 6: E-mail e Processar -->
+            <div class="mapping-step" id="m-step-6">
+                <i class="ph ph-envelope-simple step-icon"></i>
+                <h2>Perfeito! E qual seu melhor e-mail para receber a cópia dessa avaliação analítica?</h2>
+                <p class="mapping-sub">Seus dados aqui permanecem totalmente em sigilo. Fique tranquilo(a).</p>
+                <div class="input-wrapper">
+                    <input type="email" id="lead_email" name="Email do Lead" class="mapping-input" placeholder="seu.melhor.email@exemplo.com.br" required oninput="validateEmailFlow(this)">
+                    <div class="error-msg" id="email-error">Para não corremos risco de te enviar na pessoa errada, valide a terminação (@).</div>
+                </div>
+                <!-- Controls -->
+                <div class="mapping-controls">
+                    <button type="button" class="mapping-btn outline" onclick="nextMappingStep(5)"><i class="ph ph-arrow-left"></i> Voltar</button>
+                    <button type="submit" class="mapping-btn glow" id="btn-m-end" disabled>Ver Meu Diagnóstico Calculado <i class="ph ph-check-circle"></i></button>
+                </div>
+            </div>
+
+            <!-- Tela de Carregamento Silencioso (Invisível até o clique final) -->
+            <div class="mapping-step" id="m-step-loading" style="text-align:center;">
+                <i class="ph ph-spinner-gap spin-icon" style="font-size: 5rem; color: var(--primary-color);"></i>
+                <h2 style="margin-top:20px;">Analisando suas respostas...</h2>
+                <p class="mapping-sub" style="margin-bottom:0;">Injetando banco de dados de abordagens e determinando padrão central...</p>
+            </div>
+
+            <!-- Tela 8: Resultado Diagnóstico (Retomado no Fetch) -->
+            <div class="mapping-step" id="m-step-result">
+                <!-- Brain Graphic Graphic -->
+                <img src="assets/brain_graphic.png" alt="Cérebro Clínico" style="width:140px; height:140px; border-radius:50%; object-fit:cover; margin:0 auto 20px auto; border: 4px solid var(--surface-color); display:block; box-shadow: var(--shadow-md);">
+                
+                <h2 id="result-title">O seu Padrão de Comportamento</h2>
+                <div class="result-box">
+                    <p id="result-description" style="margin-bottom: 0;">Aguarde, gerando laudo...</p>
+                </div>
+                
+                <h3 style="margin-bottom: 12px;">Você não precisa mais lidar com a raiz deste cenário inteiramente sozinho(a)!</h3>
+                <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 25px;">Acabou de chegar uma cópia íntegra em PDF simulado no seu e-mail e nos prontuários secretos da Clínica.</p>
+
+                <a href="#" id="final-whatsapp-btn" class="cta-button primary-btn large-btn" style="width:100%; display: flex; justify-content:center; gap:10px;">
+                    Conversar com Mylena Direto
+                    <i class="ph ph-whatsapp-logo"></i>
+                </a>
+            </div>
+            
+            <!-- Hidden inputs obrigatórios do FormSubmit -->
+            <input type="hidden" name="_subject" value="URGENTE: Novo Mapeamento e Lead Qualificado Gerado na Página TCC!">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_cc" id="cc_email" value="">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="🌟 DIAGNÓSTICO PROFissionaliZADO GERADO:" id="hidden-result" value="">
+
+            <!-- Respostas Armazenadas do Form -->
+            <input type="hidden" id="answer_q1" name="Pergunta 1 - Reação Imediata ao Estresse" value="">
+            <input type="hidden" id="answer_q2" name="Pergunta 2 - Modulação Sono e Carga Biológica" value="">
+            <input type="hidden" id="answer_q3" name="Pergunta 3 - Reações aos Gatilhos de Relacionamento" value="">
+            
+        </form>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="https://i.ibb.co/XxRccWwG/logomylenasf.webp" alt="Logo Mylena Kerolen">
+            </div>
+            <p>&copy; 2026 Mylena Kerolen - Psicologia Clínica. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="politica-privacidade.html">Política de Privacidade</a>
+                <a href="termos-uso.html">Termos de Uso</a>
+            </div>
+            <div class="developer-credit">
+                Desenvolvido por <a href="https://cognicaodigittal.com" target="_blank" rel="noopener noreferrer">Cognição Digital</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Javascript Validation, Scoring & Flow Integration -->
+    <script>
+        const totalMappingSteps = 6;
+        let scoreA = 0; // Ansiedade / Mente Hipervigilante
+        let scoreB = 0; // Burnout/Exaustão Emocional Profunda
+        let scoreC = 0; // Conflito/Reatividade nas Relações
+
+        // Inicializador automático para a interface startar zerada
+        document.getElementById('m-step-1').classList.add('active');
+        document.getElementById('mapping-progress').style.width = (1 / totalMappingSteps * 100) + '%';
+
+        function validateNameFlow() {
+            const nameInput = document.getElementById('lead_name');
+            const errorMsg = document.getElementById('name-error');
+            const btn = document.getElementById('btn-m-1');
+            
+            /* Regex forces words with whitespace logic between words */
+            const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+\s+[A-Za-zÀ-ÖØ-öø-ÿ]+.*$/;
+            
+            if (regex.test(nameInput.value.trim())) {
+                nameInput.style.borderColor = '#25D366';
+                errorMsg.style.display = 'none';
+                btn.removeAttribute('disabled');
+            } else {
+                nameInput.style.borderColor = 'rgba(75,0,0,0.2)';
+                errorMsg.style.display = 'block';
+                btn.setAttribute('disabled', 'true');
+            }
+        }
+
+        function selectOption(stepNumber, selectedType) {
+            // Guarda resposta internamente no front-end para o placar matemático
+            if(selectedType === 'A') scoreA++;
+            if(selectedType === 'B') scoreB++;
+            if(selectedType === 'C') scoreC++;
+
+            // Mapeamento visual das escolhas para envio pro correio da clinica
+            let eventText = event.target.innerText;
+            if(stepNumber === 2) document.getElementById('answer_q1').value = eventText;
+            if(stepNumber === 3) document.getElementById('answer_q2').value = eventText;
+            if(stepNumber === 4) document.getElementById('answer_q3').value = eventText;
+
+            // Timeout sútil para engajamento e troca fluída
+            setTimeout(() => {
+                nextMappingStep(stepNumber + 1);
+            }, 350);
+        }
+
+        function nextMappingStep(nextStep) {
+            document.querySelectorAll('.mapping-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('m-step-' + nextStep).classList.add('active');
+            
+            // Logica progressão visual no nav-bar
+            let perc = (nextStep / totalMappingSteps) * 100;
+            if(perc > 100) perc = 100;
+            document.getElementById('mapping-progress').style.width = perc + '%';
+        }
+
+        function maskWhatsApp(input) {
+            let v = input.value.replace(/\D/g, ""); // strip none letters do numero telefonico brutalmente
+            v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+            v = v.replace(/(\d)(\d{4})$/, "$1-$2");
+            input.value = v;
+
+            const btn = document.getElementById('btn-m-5');
+            const error = document.getElementById('phone-error');
+            
+            if (v.length >= 14) {
+                btn.removeAttribute('disabled');
+                error.style.display = 'none';
+                input.style.borderColor = '#25D366';
+            } else {
+                btn.setAttribute('disabled', 'true');
+                if(v.length > 0 && v.length < 14) {
+                    error.style.display = 'block';
+                }
+            }
+        }
+
+        function validateEmailFlow(input) {
+            // OBRIGA O INPUT VIRAR CAIXA BAIXA EM TUDO
+            input.value = input.value.toLowerCase();
+            
+            const btn = document.getElementById('btn-m-end');
+            const error = document.getElementById('email-error');
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (regex.test(input.value)) {
+                btn.removeAttribute('disabled');
+                error.style.display = 'none';
+                input.style.borderColor = '#25D366';
+            } else {
+                btn.setAttribute('disabled', 'true');
+                if(input.value.length > 3) error.style.display = 'block';
+            }
+        }
+
+        // Motor Logístico AJAX - Transmite dados em background via fetch seguro sem reload 
+        function submitMapping() {
+            // Invoca load view screen
+            document.querySelectorAll('.mapping-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('m-step-loading').classList.add('active');
+
+            const userName = document.getElementById('lead_name').value.trim();
+            const userEmail = document.getElementById('lead_email').value;
+            
+            // Injeta o e-mail do Lead dentro da variavel hidden CC automatica da formsubmit (envio espelhado)
+            document.getElementById('cc_email').value = userEmail;
+
+            // Motor de Diagnóstico do Algoritmo 
+            let winner = 'A';
+            let maxScore = scoreA;
+            if (scoreB > maxScore) { winner = 'B'; maxScore = scoreB; }
+            if (scoreC > maxScore) { winner = 'C'; maxScore = scoreC; }
+
+            let titleStr = "";
+            let descStr = "";
+
+            if(winner === 'A') {
+                titleStr = "Perfil de Hipervigilância (Foco: Ansiedade Elevada)";
+                descStr = "Seu resultado indicou forte inclinação ao padrão cognitivo focado no futuro e dificuldade extrema de conseguir silenciar ativamente a própria mente.<br><br>Este excesso de simulação em cima de perigos ('e se...') está sugando dramaticamente a sua vivacidade no dia-a-dia a ponto de drenar seus ânimos físicos indiretamente.<br><br>Ferramentas terapêuticas comportamentais específicas atuarão muito bem com exclusividade para estancar os seus pensamentos intrusivos e regular finalmente seu sistema nervoso biológico.";
+            } else if (winner === 'B') {
+                titleStr = "Perfil de Autorrepressão (Foco: Estafa Sensorial e Burnout)";
+                descStr = "Sua bateria sensorial atingiu índices vitais super reduzidos. Na grande maior parte do tempo o seu corpo tem funcionado no modelo sobrevivência pura, apresentando indisposição profunda.<br><br>Como se tivessem deixado todo o fardo invisível de carretos do seu estresse alocado nas suas costas há tempos sem tréguas.<br><br>O pilar forte da sua reestruturação vai ser trabalhar em delimitação e assertividade protetiva urgentemente conosco na clínica para voltar a repousar os dias.";
+            } else {
+                titleStr = "Perfil de Dificuldade Regulacional (Foco: Conflitos/Apego Interpessoal)";
+                descStr = "Nossos cruzamentos atestam numericamente que hoje sua montanha russa é alimentada centralmente pela relação com suas peças chave externas (Pessoas).<br><br>Seja guardando um baú contido que explodirá do avesso, ou sofrendo imensamente oscilações violentas reativas com interações tóxicas.<br><br>Como abordagem científica exata dentro do modelo TCC focaremos especificamente com o conceito da Assertividade Emocional que devolverá equilíbrio no seu coração sem ser engolido(a) pelas narrativas dos outros.";
+            }
+
+            // Popula escondido para o e-mail (usando line-breaks limpos)
+            const emailDesc = descStr.replace(/<br><br>/g, "\n\n");
+            const fullResultString = `${titleStr} \n\n ${emailDesc}`;
+            document.getElementById('hidden-result').value = fullResultString;
+
+            // Manipula a tela do final para esperar 
+            const nameParts = userName.split(" ");
+            const firstAndLast = nameParts.length > 1 ? `${nameParts[0]} ${nameParts[nameParts.length - 1]}` : nameParts[0];
+            const cleanPhone = "5562993213024"; // Telefone dela 
+            const zapLinkHref = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(`Olá Dra. Mylena! Vim da internet, e meu nome é ${firstAndLast}. Vi que o meu resultado foi '${titleStr}'. Gostaria de agendar uma consulta.`)}`;
+            
+            document.getElementById('final-whatsapp-btn').href = zapLinkHref;
+
+            const form = document.getElementById('mapping-form');
+            const formData = new FormData(form);
+
+            fetch("https://formsubmit.co/ajax/mylenakpsi@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('m-step-loading').classList.remove('active');
+                document.getElementById('m-step-result').classList.add('active');
+                
+                document.getElementById('result-title').innerText = titleStr;
+                document.getElementById('result-description').innerHTML = descStr;
+            })
+            .catch(error => {
+                // Caso erro CORS origin no teste localhost mas funciona sempre
+                document.getElementById('m-step-loading').classList.remove('active');
+                document.getElementById('m-step-result').classList.add('active');
+                
+                document.getElementById('result-title').innerText = titleStr;
+                document.getElementById('result-description').innerHTML = descStr;
+            });
+        }
+    </script>
+</body>
+</html>

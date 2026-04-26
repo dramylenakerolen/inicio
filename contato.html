@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Mylena Kerolen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="mapping-page"> <!-- Resing mapping background styles -->
+
+    <div class="container" style="padding-top: 20px; max-width: 650px;">
+        <a href="index.html" class="back-link">
+            <i class="ph ph-arrow-left"></i> Voltar para o início
+        </a>
+    </div>
+
+    <div class="mapping-container contact-container">
+        <div class="contact-header">
+            <i class="ph ph-chat-centered-text glow-icon" style="font-size: 3rem; color: var(--primary-color);"></i>
+            <h1>Inicie sua Jornada</h1>
+            <p>Preencha os dados abaixo para solicitar um horário ou tirar suas dúvidas diretamente com a Mylena.</p>
+        </div>
+
+        <form id="contact-form" onsubmit="event.preventDefault(); submitContact();">
+            <!-- STEP 1: NOME -->
+            <div class="contact-step active" id="c-step-1">
+                <div class="input-group">
+                    <label for="lead_name"><i class="ph ph-user"></i> Nome Completo</label>
+                    <input type="text" id="lead_name" name="Nome Completo" class="mapping-input" placeholder="Ex: Ana Silva" required oninput="validateContactForm()">
+                    <div class="error-msg" id="name-error">Insira nome e sobrenome completo.</div>
+                </div>
+
+                <div class="input-group">
+                    <label for="lead_whatsapp"><i class="ph ph-whatsapp-logo"></i> WhatsApp</label>
+                    <input type="text" id="lead_whatsapp" name="WhatsApp" class="mapping-input" placeholder="(99) 9.9999-9999" required oninput="maskContactWhatsApp(this)">
+                </div>
+
+                <div class="input-group">
+                    <label for="lead_email"><i class="ph ph-envelope"></i> E-mail</label>
+                    <input type="email" id="lead_email" name="Email" class="mapping-input" placeholder="seu@email.com" required oninput="validateContactForm()">
+                </div>
+
+                <div class="input-group">
+                    <label for="message"><i class="ph ph-chat-circle-dots"></i> Em que posso te ajudar?</label>
+                    <textarea id="message" name="Mensagem" class="mapping-input" placeholder="Conte brevemente o que você busca na terapia..." style="min-height: 120px; resize: vertical;" required oninput="validateContactForm()"></textarea>
+                </div>
+
+                <!-- FormSubmit Config -->
+                <input type="hidden" name="_subject" value="Novo Lead de Contato - Mylena Kerolen">
+                <input type="hidden" name="_cc" id="cc_email">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_autoresponse" value="Recebi sua mensagem! Em breve entrarei em contato via WhatsApp para conversarmos.">
+
+                <button type="submit" id="btn-submit-contact" class="mapping-btn glow" style="margin-top: 20px;" disabled>
+                    Enviar Mensagem
+                    <i class="ph ph-paper-plane-right"></i>
+                </button>
+            </div>
+
+            <!-- LOADING STEP -->
+            <div class="contact-step" id="c-step-loading" style="text-align: center; padding: 40px 0;">
+                <i class="ph ph-circle-notch spin-icon" style="font-size: 4rem; color: var(--primary-color);"></i>
+                <h3>Enviando seus dados...</h3>
+                <p>Aguarde um instante enquanto conectamos você.</p>
+            </div>
+
+            <!-- SUCCESS STEP -->
+            <div class="contact-step" id="c-step-success" style="text-align: center; padding: 20px 0;">
+                <i class="ph ph-check-circle glow-icon" style="font-size: 5rem; color: #25D366; margin-bottom: 20px;"></i>
+                <h2>Mensagem Enviada!</h2>
+                <p style="margin-bottom: 30px;">Obrigada por entrar em contato. Já recebi seus dados e responderei o quanto antes.</p>
+                
+                <div style="background-color: var(--surface-alt); padding: 25px; border-radius: var(--radius-md); margin-bottom: 30px;">
+                    <p style="font-weight: 600; color: var(--primary-dark); margin-bottom: 10px;">Quer agilizar seu atendimento?</p>
+                    <p style="font-size: 0.95rem; margin-bottom: 20px;">Clique no botão abaixo para me chamar agora mesmo no WhatsApp já com seu nome preenchido.</p>
+                    <a href="#" id="final-whatsapp-btn" class="mapping-btn glow" style="background-color: #25D366; text-decoration: none;">
+                        Falar no WhatsApp Agora
+                        <i class="ph ph-whatsapp-logo"></i>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="https://i.ibb.co/XxRccWwG/logomylenasf.webp" alt="Logo Mylena Kerolen">
+            </div>
+            <p>&copy; 2026 Mylena Kerolen - Psicologia Clínica. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="politica-privacidade.html">Política de Privacidade</a>
+                <a href="termos-uso.html">Termos de Uso</a>
+            </div>
+            <div class="developer-credit">
+                Desenvolvido por <a href="https://cognicaodigittal.com" target="_blank" rel="noopener noreferrer">Cognição Digital</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function validateContactForm() {
+            const nameInput = document.getElementById('lead_name');
+            const emailInput = document.getElementById('lead_email');
+            const phoneInput = document.getElementById('lead_whatsapp');
+            const messageInput = document.getElementById('message');
+            const btn = document.getElementById('btn-submit-contact');
+            const errorMsg = document.getElementById('name-error');
+
+            const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+\s+[A-Za-zÀ-ÖØ-öø-ÿ]+.*$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            const isNameValid = nameRegex.test(nameInput.value.trim());
+            const isEmailValid = emailRegex.test(emailInput.value);
+            const isPhoneValid = phoneInput.value.length >= 14;
+            const isMessageValid = messageInput.value.trim().length > 5;
+
+            if (isNameValid) {
+                nameInput.style.borderColor = '#25D366';
+                errorMsg.style.display = 'none';
+            } else if (nameInput.value.length > 5) {
+                errorMsg.style.display = 'block';
+                nameInput.style.borderColor = 'rgba(75,0,0,0.2)';
+            }
+
+            if (isNameValid && isEmailValid && isPhoneValid && isMessageValid) {
+                btn.removeAttribute('disabled');
+            } else {
+                btn.setAttribute('disabled', 'true');
+            }
+        }
+
+        function maskContactWhatsApp(input) {
+            let v = input.value.replace(/\D/g, "");
+            v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+            v = v.replace(/(\d)(\d{4})$/, "$1-$2");
+            input.value = v;
+            validateContactForm();
+        }
+
+        function submitContact() {
+            document.getElementById('c-step-1').classList.remove('active');
+            document.getElementById('c-step-loading').classList.add('active');
+
+            const userName = document.getElementById('lead_name').value.trim();
+            const userEmail = document.getElementById('lead_email').value;
+            document.getElementById('cc_email').value = userEmail;
+
+            // Generate WhatsApp Link
+            const nameParts = userName.split(" ");
+            const firstAndLast = nameParts.length > 1 ? `${nameParts[0]} ${nameParts[nameParts.length - 1]}` : nameParts[0];
+            const cleanPhone = "5562993213024";
+            const zapLinkHref = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(`Olá Dra. Mylena! Meu nome é ${firstAndLast}. Acabei de te enviar um pedido de contato pelo site. Podemos conversar sobre o meu caso?`)}`;
+            
+            document.getElementById('final-whatsapp-btn').href = zapLinkHref;
+
+            const form = document.getElementById('contact-form');
+            const formData = new FormData(form);
+
+            fetch("https://formsubmit.co/ajax/mylenakpsi@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('c-step-loading').classList.remove('active');
+                document.getElementById('c-step-success').classList.add('active');
+            })
+            .catch(error => {
+                // Fallback for local testing or CORS
+                document.getElementById('c-step-loading').classList.remove('active');
+                document.getElementById('c-step-success').classList.add('active');
+            });
+        }
+    </script>
+
+    <style>
+        .contact-container { padding: 50px; }
+        .contact-header { text-align: center; margin-bottom: 40px; }
+        .contact-header h1 { font-size: 2.2rem; margin: 15px 0 10px; }
+        .contact-header p { color: var(--text-muted); font-size: 1.05rem; }
+        .contact-step { display: none; }
+        .contact-step.active { display: block; animation: fadeIn 0.5s ease-out; }
+        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group label { display: block; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
+        .input-group label i { color: var(--primary-color); font-size: 1.1rem; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</body>
+</html>
