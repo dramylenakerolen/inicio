@@ -295,7 +295,7 @@ section {
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--text-muted);
-    max-width: 90%;
+    max-width: 95%; /* Increased to allow more room for manual breaks */
 }
 
 .hero-image-wrapper {
@@ -1092,6 +1092,13 @@ footer {
     }
     
     .hero { padding: 150px 0 60px; min-height: auto; }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        text-align: left !important;
+        line-height: 1.5;
+        margin-bottom: 25px;
+    }
     
     .hero-benefits {
         text-align: left;
