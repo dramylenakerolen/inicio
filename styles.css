@@ -172,6 +172,9 @@ h1 {
     letter-spacing: -0.02em;
     margin-bottom: 24px;
     text-align: center !important;
+    max-width: 900px; /* Expande para permitir linhas mais longas no Desktop */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h2 {
@@ -295,7 +298,7 @@ section {
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--text-muted);
-    max-width: 95%; /* Increased to allow more room for manual breaks */
+    max-width: 100%; /* Preenche todo o vazio da direita no Desktop */
 }
 
 .hero-image-wrapper {
