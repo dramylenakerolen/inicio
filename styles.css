@@ -163,6 +163,7 @@ h1, h2, h3 {
     font-family: var(--font-heading);
     line-height: 1.2;
     color: var(--primary-dark);
+    text-align: center !important;
 }
 
 h1 {
@@ -170,14 +171,20 @@ h1 {
     font-weight: 600;
     letter-spacing: -0.02em;
     margin-bottom: 24px;
-    text-align: justify !important;
+    text-align: center !important;
 }
 
 h2 {
     font-size: 2.5rem;
     font-weight: 600;
     margin-bottom: 16px;
-    text-align: justify !important;
+    text-align: center !important;
+}
+
+p {
+    text-align: left !important;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 /* Utilities */
@@ -197,6 +204,7 @@ h2 {
 .benefits-list {
     list-style: none;
     margin: 32px 0;
+    text-align: left;
 }
 
 .benefits-list li {
@@ -1075,15 +1083,17 @@ footer {
     h1 { font-size: 2.8rem; }
     .hero > .container, .about-container {
         grid-template-columns: 1fr;
-        text-align: justify;
+        text-align: center; /* Heading centering is global, but buttons/etc benefit from this */
         gap: 40px;
     }
     
     .hero { padding: 280px 0 60px; min-height: auto; }
     
     .hero-benefits {
-        display: inline-block;
         text-align: left;
+        width: 100%;
+        max-width: 90%;
+        margin-right: auto;
     }
     
     .about-image { margin: 0 auto; max-width: 400px; }
