@@ -105,7 +105,7 @@
     }
 
     .hero {
-        padding: 180px 0 60px; /* More space for the badge below fixed header */
+        padding: 200px 0 60px; /* More space for the badge below fixed header on mobile */
     }
 }
 
@@ -260,7 +260,7 @@ section {
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 180px 0 80px; /* Increased padding top */
+    padding: 240px 0 80px; /* Increased to provide more space below fixed header */
 }
 
 .hero::after {
