@@ -1302,6 +1302,7 @@ footer {
     flex: 1;
     text-align: center;
     padding-right: 38px; /* To visually center text considering the icon space */
+    white-space: nowrap;
 }
 
 .linktree-btn:hover {
