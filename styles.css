@@ -184,6 +184,10 @@ h2 {
     text-align: center !important;
 }
 
+.mobile-br {
+    display: none;
+}
+
 p {
     text-align: left !important;
     line-height: 1.6;
@@ -1101,6 +1105,10 @@ footer {
         text-align: left !important;
         line-height: 1.5;
         margin-bottom: 25px;
+    }
+    
+    .mobile-br {
+        display: block;
     }
     
     .hero-benefits {
