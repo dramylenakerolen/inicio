@@ -256,6 +256,34 @@
     </a>
 
     <script>
+        // Menu Mobile Toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (menuBtn && navMenu) {
+            menuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                const icon = menuBtn.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('ph-list');
+                    icon.classList.add('ph-x');
+                } else {
+                    icon.classList.remove('ph-list');
+                    icon.classList.add('ph-list'); // In case it was x
+                    // Re-sync icon
+                    icon.className = 'ph ph-list';
+                }
+            });
+
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    const icon = menuBtn.querySelector('i');
+                    icon.className = 'ph ph-list';
+                });
+            });
+        }
+
         const totalSteps = 5;
         function openQuiz(e) {
             if(e) e.preventDefault();
