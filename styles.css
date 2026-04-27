@@ -418,8 +418,8 @@ section {
 /* About Section */
 .about-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    grid-template-columns: 1.2fr 1fr; /* Aumentada a proporção da coluna da imagem */
+    gap: 60px;
     align-items: center;
 }
 
@@ -432,7 +432,7 @@ section {
 .about-photo {
     width: 100%;
     height: auto;
-    aspect-ratio: 4/5;
+    aspect-ratio: 1/1; /* Mudado para quadrado para mostrar mais largura da imagem */
     object-fit: cover;
     object-position: top center;
     background-color: var(--surface-alt);
@@ -1424,8 +1424,8 @@ footer {
 }
 
 .avatar-wrapper {
-    width: 140px; /* Aumentado para dar mais destaque */
-    height: 140px;
+    width: 180px; /* Ampliado significativamente conforme solicitado */
+    height: 180px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 16px;
