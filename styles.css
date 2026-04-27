@@ -1390,14 +1390,23 @@ footer {
 }
 
 @media (max-width: 992px) {
-    .linktree-container .footer-logo {
-        position: static;
-        margin-bottom: 15px;
+    .linktree-container .footer-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
     }
-    
+
+    .linktree-container .footer-logo {
+        position: static !important;
+        margin: 0 auto 20px !important;
+        transform: none !important;
+    }
+
     .linktree-container .footer-links-group p {
-        flex-direction: column;
-        gap: 10px;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
     }
 }
 .linktree-footer .developer-credit a {
