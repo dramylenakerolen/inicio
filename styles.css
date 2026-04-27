@@ -439,8 +439,6 @@ section {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     transition: var(--transition);
-    transform: scale(1.2); /* Zoom de 20% */
-    transform-origin: top center; /* Foca o zoom no rosto/topo */
 }
 
 .about-photo:hover {
@@ -1440,8 +1438,6 @@ footer {
     height: 100%;
     object-fit: cover;
     object-position: top center;
-    transform: scale(1.1); /* Ajustado para mostrar mais dela (ombros) além do rosto */
-    transform-origin: top center;
 }
 
 .linktree-name {
