@@ -608,19 +608,27 @@ footer {
         margin: 0 !important;
     }
 
-    /* Linha 1: Copyright e Direitos Juntos */
-    .footer-copy-main, .footer-copy-sub {
-        display: inline-block !important;
-        margin: 0 4px !important;
+    /* Linha 1: Grupo de Copyright */
+    .footer-copyright-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
     }
 
-    /* Linha 2: Links Legais (sozinhos em uma nova linha) */
+    .footer-copy-main, .footer-copy-sub {
+        margin: 0 !important;
+        white-space: nowrap;
+    }
+
+    /* Linha 2: Links Legais */
     .footer-legal-links {
         display: block !important;
         margin-top: 10px !important;
     }
 
-    /* Linha 3: Créditos (sozinhos no final) */
+    /* Linha 3: Créditos */
     .developer-credit {
         display: block !important;
         margin-top: 8px !important;
@@ -633,10 +641,16 @@ footer {
         gap: 8px;
     }
 
+    .footer-copyright-row {
+        flex-direction: column !important;
+        gap: 5px;
+    }
+
     .footer-copy-main, .footer-copy-sub {
         display: block !important;
         width: 100% !important;
         text-align: center !important;
+        white-space: normal !important; /* Permite quebrar se a tela for muito pequena */
     }
 
     .footer-legal-links {
