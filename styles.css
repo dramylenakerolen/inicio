@@ -608,19 +608,22 @@ footer {
         margin: 0 !important;
     }
 
-    /* Tudo em uma linha no Desktop */
-    .footer-copy-main, .footer-copy-sub, .footer-legal-links {
+    /* Linha 1: Copyright e Direitos Juntos */
+    .footer-copy-main, .footer-copy-sub {
         display: inline-block !important;
-        margin: 0 8px !important;
-        vertical-align: middle;
+        margin: 0 4px !important;
     }
 
+    /* Linha 2: Links Legais (sozinhos em uma nova linha) */
     .footer-legal-links {
-        margin-top: 0 !important;
+        display: block !important;
+        margin-top: 10px !important;
     }
 
+    /* Linha 3: Créditos (sozinhos no final) */
     .developer-credit {
-        margin-top: 10px !important;
+        display: block !important;
+        margin-top: 8px !important;
     }
 }
 
