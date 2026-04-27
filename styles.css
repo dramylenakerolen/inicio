@@ -1564,9 +1564,10 @@ footer {
 
     .links-page footer .footer-legal-links {
         display: flex !important;
-        flex-direction: column !important;
+        flex-direction: row !important; /* Coloca um do lado do outro no Desktop */
+        justify-content: center !important;
         margin-top: 15px !important;
-        gap: 12px !important;
+        gap: 20px !important; /* Espaço entre os links */
     }
 }
 
