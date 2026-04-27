@@ -1377,8 +1377,8 @@ footer {
 
 .linktree-container footer {
     margin-top: 40px;
-    padding: 0;
-    background: transparent;
+    padding: 40px 0;
+    background-color: var(--primary-color); /* Restaurada a cor Bordô original */
     width: 100%;
 }
 
