@@ -1456,15 +1456,27 @@ footer {
 .linktree-container footer {
     margin-top: 40px;
     padding: 40px 0;
-    background-color: var(--primary-color); /* Restaurada a cor Bordô original */
+    background-color: var(--primary-color);
     width: 100%;
+}
+
+.linktree-container footer .container {
+    padding: 0 10px !important; /* Mais espaço para o texto no celular */
+    max-width: 100%;
 }
 
 .linktree-container .footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
+}
+
+@media (max-width: 480px) {
+    .links-page .footer-legal-container p {
+        font-size: 0.8rem; /* Pequeno ajuste para garantir linha única em telas mini */
+        white-space: nowrap; /* Garante a linha única conforme solicitado */
+    }
 }
 
 /* Removidas regras específicas para unificar com o padrão global do site */
