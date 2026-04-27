@@ -426,6 +426,7 @@ section {
 .about-image {
     position: relative;
     border-radius: var(--radius-lg);
+    overflow: hidden; /* Garante que o zoom não escape da moldura */
 }
 
 .about-photo {
@@ -438,6 +439,8 @@ section {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     transition: var(--transition);
+    transform: scale(1.2); /* Zoom de 20% */
+    transform-origin: top center; /* Foca o zoom no rosto/topo */
 }
 
 .about-photo:hover {
@@ -1422,16 +1425,23 @@ footer {
     margin-bottom: 30px;
 }
 
-.linktree-avatar {
+.avatar-wrapper {
     width: 110px;
     height: 110px;
     border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 16px;
+    border: 3px solid var(--surface-color);
+    box-shadow: var(--shadow-md);
+}
+
+.linktree-avatar {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: top center;
-    margin-bottom: 16px;
-    box-shadow: var(--shadow-md);
-    background-color: var(--surface-alt);
-    border: 3px solid var(--surface-color);
+    transform: scale(1.3); /* Zoom maior solicitado */
+    transform-origin: top center;
 }
 
 .linktree-name {
