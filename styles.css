@@ -1526,6 +1526,50 @@ footer {
 }
 
 /* Removidas regras específicas para unificar com o padrão global do site */
+/* Links Page Footer Desktop Override - Forçar layout mobile no desktop */
+@media (min-width: 993px) {
+    .links-page footer .footer-content {
+        flex-direction: column !important;
+        align-items: center !important;
+        position: relative !important;
+        min-height: auto !important;
+    }
+
+    .links-page footer .footer-logo {
+        position: static !important;
+        transform: none !important;
+        margin-bottom: 20px !important;
+        text-align: center !important;
+    }
+
+    .links-page footer .footer-legal-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .links-page footer .footer-copy-main, 
+    .links-page footer .footer-copy-sub,
+    .links-page footer .footer-copyright-row {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin: 5px 0 !important;
+    }
+
+    .links-page footer .footer-copyright-row {
+        flex-direction: column !important;
+    }
+
+    .links-page footer .footer-legal-links {
+        display: flex !important;
+        flex-direction: column !important;
+        margin-top: 15px !important;
+        gap: 12px !important;
+    }
+}
+
 /* Fim da unificação do rodapé */
 
 /* Ajustes de Margem para Metodologia (Mobile/Tablet) */
