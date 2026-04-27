@@ -434,12 +434,11 @@ section {
     height: auto;
     aspect-ratio: 4/5;
     object-fit: cover;
-    object-position: center 20%; /* Foca levemente mais para o topo para evitar cortes na cabeça */
+    object-position: top center;
     background-color: var(--surface-alt);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     transition: var(--transition);
-    transform: scale(1.15); /* Ponto de equilíbrio para não mostrar as bordas do arquivo */
 }
 
 .about-photo:hover {
@@ -1438,8 +1437,7 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 20%;
-    transform: scale(1.15); /* Ajuste para não mostrar o corte seco do arquivo original */
+    object-position: top center;
 }
 
 .linktree-name {
