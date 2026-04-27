@@ -1395,18 +1395,32 @@ footer {
         flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
+        width: 100% !important;
+        gap: 20px !important;
+        padding: 20px 0 !important;
     }
 
     .linktree-container .footer-logo {
         position: static !important;
-        margin: 0 auto 20px !important;
-        transform: none !important;
+        margin: 0 auto 10px !important;
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    .linktree-container .footer-logo img {
+        height: 120px !important;
+        margin: 0 auto !important;
+    }
+
+    .linktree-container .footer-links-group {
+        width: 100% !important;
     }
 
     .linktree-container .footer-links-group p {
         display: flex !important;
         flex-direction: column !important;
-        gap: 10px !important;
+        align-items: center !important;
+        gap: 8px !important;
     }
 }
 .linktree-footer .developer-credit a {
