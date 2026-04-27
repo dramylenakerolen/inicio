@@ -426,23 +426,24 @@ section {
 .about-image {
     position: relative;
     border-radius: var(--radius-lg);
-    overflow: hidden; /* Garante que o zoom não escape da moldura */
+    overflow: hidden;
+    background-color: #f2eddf; /* Cor bege para bater com o fundo da foto e evitar 'cortes' */
 }
 
 .about-photo {
     width: 100%;
     height: auto;
     aspect-ratio: 1/1; /* Mudado para quadrado para mostrar mais largura da imagem */
-    object-fit: cover;
-    object-position: top center;
-    background-color: var(--surface-alt);
+    object-fit: contain; /* Mudado para contain para garantir que NADA da imagem seja cortado */
+    background-color: #f2eddf;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     transition: var(--transition);
+    transform: scale(0.7); /* Afastamento controlado */
 }
 
 .about-photo:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(0.7);
     box-shadow: 0 15px 40px rgba(75, 0, 0, 0.15);
 }
 
@@ -1431,13 +1432,14 @@ footer {
     margin: 0 auto 16px;
     border: 3px solid var(--surface-color);
     box-shadow: var(--shadow-md);
+    background-color: #f2eddf; /* Fundo igual ao da foto */
 }
 
 .linktree-avatar {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top center;
+    object-fit: contain; /* Garante que a imagem inteira seja vista */
+    transform: scale(0.8); /* Afastamento para dar o efeito de longe */
 }
 
 .linktree-name {
