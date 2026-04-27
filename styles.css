@@ -569,25 +569,27 @@ footer {
     }
 }
 
-.footer-links {
+.footer-links-group p {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 15px;
+    margin-bottom: 5px;
 }
 
-.footer-links a {
+.footer-links-group a {
     color: rgba(255,255,255,0.7);
     text-decoration: none;
     transition: var(--transition);
 }
 
-.footer-links a:hover {
+.footer-links-group a:hover {
     color: white;
     text-decoration: underline;
 }
 
 .developer-credit {
-    margin-top: 15px;
+    margin-top: 5px;
     font-size: 0.8rem;
     color: rgba(255,255,255,0.4);
 }
