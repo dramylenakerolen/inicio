@@ -1390,37 +1390,44 @@ footer {
 }
 
 @media (max-width: 992px) {
-    .linktree-container .footer-content {
+    /* Reset total para a página de links no mobile/tablet */
+    .links-page footer .footer-content {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
-        width: 100% !important;
-        gap: 20px !important;
-        padding: 20px 0 !important;
+        position: static !important;
+        padding-top: 20px !important;
+        gap: 15px !important;
     }
 
-    .linktree-container .footer-logo {
+    .links-page footer .footer-logo {
         position: static !important;
         margin: 0 auto 10px !important;
         display: block !important;
-        width: 100% !important;
+        transform: none !important;
+        left: unset !important;
+        top: unset !important;
     }
-    
-    .linktree-container .footer-logo img {
-        height: 120px !important;
+
+    .links-page footer .footer-logo img {
+        height: 110px !important;
+        width: auto !important;
         margin: 0 auto !important;
     }
 
-    .linktree-container .footer-links-group {
+    .links-page footer .footer-links-group {
+        display: block !important;
         width: 100% !important;
+        margin: 0 !important;
     }
 
-    .linktree-container .footer-links-group p {
+    .links-page footer .footer-links-group p {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        gap: 8px !important;
+        gap: 5px !important;
+        text-align: center !important;
     }
 }
 .linktree-footer .developer-credit a {
