@@ -309,7 +309,7 @@
             const nameParts = userName.split(" ");
             const firstAndLast = nameParts.length > 1 ? `${nameParts[0]} ${nameParts[nameParts.length - 1]}` : nameParts[0];
             const cleanPhone = "5562993213024"; // Telefone dela 
-            const zapLinkHref = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(`Olá Dra. Mylena! Vim da internet, e meu nome é ${firstAndLast}. Vi que o meu resultado foi '${titleStr}'. Gostaria de agendar uma consulta.`)}`;
+            const zapLinkHref = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(`Olá Mylena! Vim da internet, e meu nome é ${firstAndLast}. Vi que o meu resultado foi '${titleStr}'. Gostaria de agendar uma consulta.`)}`;
             
             document.getElementById('final-whatsapp-btn').href = zapLinkHref;
 
